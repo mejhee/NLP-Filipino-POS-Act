@@ -162,7 +162,7 @@ def main():
 
         # Load checkpoints and put the model in eval mode
         with open(args.checkpoint + '/model.bin', 'rb') as f:
-            model.load_state_dict(torch.load(f))
+            model.load_state_dict(torch.load(f, map_location=torch.device('cpu')))
         model = model.cpu()
         model.eval();
 
